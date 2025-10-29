@@ -1,0 +1,32 @@
+﻿<Window x:Class="Contractor_App.JobEditor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Contractor_App"
+        mc:Ignorable="d"
+        Title="JobEditor" Height="450" Width="500">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0"  Content="Title" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="1" Content="Date" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="2" Content="Cost" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="3" Content="Complete" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="4" Content="Assignee" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <TextBox x:Name="titleBox" Grid.Column="1" Grid.Row="0" Text="Textbox" VerticalAlignment="Center" Margin="50, 0" />
+        <DatePicker x:Name="dateBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="50, 0" />
+        <TextBox x:Name="costBox" Grid.Column="1" Grid.Row="2" Text="$" VerticalAlignment="Center" Margin="50, 0" />
+        <CheckBox x:Name="completeBox" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="50, 0" />
+        <TextBox x:Name="assigneeBox" IsEnabled="False" Grid.Column="1" Grid.Row="4" Text="Textbox" VerticalAlignment="Center" Margin="50, 0" />
+    </Grid>
+</Window>

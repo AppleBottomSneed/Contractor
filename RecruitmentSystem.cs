@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Contractor
 {
-    public class RecruitmentSystem
+    class RecruitmentSystem
     {
+        private readonly List<Contractor> contractors = new List<Contractor>();
+        private readonly List<Job> jobs = new List<Job>();
     }
 }
