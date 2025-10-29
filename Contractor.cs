@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Contractor
 {
-    public class Contractor
+    public class Contractors
     {
     }
 }

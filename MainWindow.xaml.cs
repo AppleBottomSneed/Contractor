@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Contractor;
 
 namespace Contractor
 {
@@ -19,6 +20,12 @@ namespace Contractor
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // display jobeditor window
+            new JobEditor().Show();
         }
     }
 }

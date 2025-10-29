@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Contractor_App
+namespace Contractor
 {
     /// <summary>
     /// Interaction logic for JobEditor.xaml
@@ -22,6 +22,29 @@ namespace Contractor_App
         public JobEditor()
         {
             InitializeComponent();
+        }
+
+        private void costBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
+            
+        }
+
+        private void assigneeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                string input = e.Text;
+                for (int i = 0; i < textBox.Text.Length; i++)
+                {
+                    if (char.IsDigit(input[i]) || (input[i] == '.'))
+                    {
+                        return;
+                    }
+                }
+                e.Handled = true;
+            }
         }
     }
 }

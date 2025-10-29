@@ -14,7 +14,7 @@ namespace Contractor
         public float Cost { get; set; }
         public bool Completed { get; set; }
         // Easier for datatype to ref back to the object
-        public Contractor AssignedContractor { get; set; }
+        public Contractors AssignedContractor { get; set; }
         public Job(string title, float cost)
         {
             // Default status should be incomplete & empty before assigning
