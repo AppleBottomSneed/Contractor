@@ -39,7 +39,7 @@ namespace Contractor
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             Job job = new Job("Do things", 5);
-            job.AssignedContractor = new Contractors();
+            // job.AssignedContractor = new Contractors();
             JobEditor editor = new JobEditor(job);
             editor.Show();
         }

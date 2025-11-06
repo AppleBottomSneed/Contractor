@@ -13,6 +13,7 @@ namespace Contractor
         public DateTime Date { get; set; }
         public float Cost { get; set; }
         public bool Completed { get; set; }
+
         // Easier for datatype to ref back to the object
         public Contractors AssignedContractor { get; set; }
         public Job(string title, float cost)
@@ -24,6 +25,11 @@ namespace Contractor
             Title = title;
             Cost = cost;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="cost"></param>
 
         public override string ToString() {
             return $"{Title}-{Cost}";
