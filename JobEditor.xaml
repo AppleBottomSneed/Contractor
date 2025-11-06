@@ -26,9 +26,9 @@
         <Label Grid.Column="0" Grid.Row="4" Content="Assignee" VerticalAlignment="Center" Margin="50, 0" ></Label>
         <TextBox x:Name="titleBox" Grid.Column="1" Grid.Row="0" Text="Textbox" VerticalAlignment="Center" Margin="50, 0" />
         <DatePicker x:Name="dateBox" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Margin="50, 0" />
-        <TextBox x:Name="costBox" Grid.Column="1" Grid.Row="2" Text="$" VerticalAlignment="Center" Margin="50, 0" TextChanged="costBox_TextChanged" />
+        <TextBox x:Name="costBox" Grid.Column="1" Grid.Row="2" Text="" VerticalAlignment="Center" Margin="50, 0" TextChanged="costBox_TextChanged" />
         <CheckBox x:Name="completeBox" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Margin="50, 0" />
         <TextBox x:Name="assigneeBox" IsEnabled="False" Grid.Column="1" Grid.Row="4" Text="Textbox" VerticalAlignment="Center" Margin="50, 0" PreviewTextInput="assigneeBox_PreviewTextInput" />
-        <Button   Grid.Row="5" Grid.ColumnSpan="2" Content="Submit" VerticalAlignment="Center" Margin="50, 0" Width="70" />
+        <Button   Grid.Row="5" Grid.ColumnSpan="2" Content="Submit" VerticalAlignment="Center" Margin="50, 0" Width="70" Click="Button_Click" />
     </Grid>
 </Window>

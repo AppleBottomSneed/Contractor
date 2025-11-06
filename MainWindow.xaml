@@ -5,8 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contractor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="446" Width="809">
     <Grid>
-        <Button Click="Button_Click" Content="Test"></Button>
+        
+        <Button Click="Button_Click" Content="New Job" Margin="104,78,559,306"></Button>
+        <Button Click="Button2_Click" Content="Edit Job" Margin="104,172,559,212"></Button>
+        <ListBox x:Name="jobList" Margin="509,10,10,10"></ListBox>
+        <ComboBox x:Name="jobBox"  Margin="104,258,559,142" SelectionChanged="selectedJob" Height="30" />
+        <Label x:Name="infoLabel" Content=""  Margin="72,322,527,34" />
     </Grid>
 </Window>

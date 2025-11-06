@@ -10,7 +10,7 @@ namespace Contractor
     {
         public string Title { get; set; }
         // set to private so that date when created cant be altered
-        public DateTime Date { get; private set; }
+        public DateTime Date { get; set; }
         public float Cost { get; set; }
         public bool Completed { get; set; }
         // Easier for datatype to ref back to the object
@@ -21,6 +21,13 @@ namespace Contractor
             Completed = false;
             AssignedContractor = null;
             Date = DateTime.Now;
+            Title = title;
+            Cost = cost;
         }
-}
+
+        public override string ToString() {
+            return $"{Title}-{Cost}";
+        }
+
+    }
 }
