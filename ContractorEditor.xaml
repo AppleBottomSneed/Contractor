@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contractor"
         mc:Ignorable="d"
-        Title="ContractorEditor" Height="450" Width="800">
+        Title="ContractorEditor" Height="300" Width="500">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0"  Content="First name" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="1" Content="Last name" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="2" Content="Start date" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="3" Content="Hourly wage" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <Label Grid.Column="0" Grid.Row="4" Content="Assignee" VerticalAlignment="Center" Margin="50, 0" ></Label>
+        <TextBox x:Name="firstNameBox"  Grid.Column="1" Grid.Row="0" Text="Textbox" VerticalAlignment="Center" Margin="50, 0" />
+        <TextBox x:Name="lastNameBox"  Grid.Column="1" Grid.Row="1" Text="Textbox" VerticalAlignment="Center" Margin="50, 0" />
+        <DatePicker x:Name="startDateBox"  Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Margin="50, 0" />
+        <TextBox x:Name="hourlyWageBox"  Grid.Column="1" Grid.Row="3" Text="Textbox" VerticalAlignment="Center" Margin="50, 0" />
+        <Button   Grid.Row="5" Grid.ColumnSpan="2" Content="Submit" VerticalAlignment="Center" Margin="50, 0" Width="70" Click="Submit_Button"  />
     </Grid>
 </Window>

@@ -35,6 +35,17 @@ namespace Contractor
             editor.ShowDialog();
             jobList.ItemsSource = new Job[] { job };
         }
+        private void Display_Contractor(object sender, RoutedEventArgs e)
+        {
+            Contractors contractors = new Contractors(null, null, 0);
+            ContractorEditor contractorEditor = new ContractorEditor(contractors);
+            contractorEditor.ShowDialog();
+            contractorlist.ItemsSource = new Contractors[] { contractors };
+        }
+        /// <summary>
+        /// Creates new contractor --> opens ContractorEditor window --> submit --> updates contractorlist
+        /// Item.Refresh just in case view doesn't load/refresh
+        /// </summary>
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
@@ -54,5 +65,7 @@ namespace Contractor
                 infoLabel.Content = selectedJob.ToString();
             }
         }
+
+        
     }
 }
