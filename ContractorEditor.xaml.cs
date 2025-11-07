@@ -57,8 +57,7 @@ namespace Contractor
         /// ContractorEditor enables contractor fields to fill the Contractor listbox
         /// Submit_Button takes the user input in contractor fields and overrides ContractorsToEdit object
         /// </summary>
-        /// Things to do: 
-        /// 1# Listbox display correct fields
+        
     }
 
 }

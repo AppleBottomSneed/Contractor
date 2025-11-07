@@ -14,17 +14,29 @@ namespace Contractor
         private readonly List<Contractors> contractors = new List<Contractors>();
         private readonly List<Job> jobs = new List<Job>();
 
-        /*
+        /// <summary>
+        /// Persistent list of Contractors
+        /// </summary>
+        /// <returns>contractors so it doesnt refresh</returns>
         public List<Contractors> GetContractors()
         {
-            
+            return contractors;
         }
-        */
         /// <summary>
-        /// Grabs contractors 
+        /// Method to add contractors to object Contractors
         /// </summary>
-        /// <param name="contractors">Contractor I want to assign selected job to</param>
-        /// <param name="job">Job I want to assign selected contractor to</param>
+        /// <param name="contractors">adding contractor fields to Contractors</param>
+        public void AddContractors(Contractors contractors)
+        {
+            this.contractors.Add(contractors);
+        }
+
+        public void RemoveContractors(Contractors contractors)
+        {
+            this.contractors.Remove(contractors);
+        }
+        /// Things to do:
+        /// #1 create GetJob to return jobs after completing contractors
     }
 
 

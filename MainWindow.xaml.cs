@@ -17,6 +17,8 @@ namespace Contractor
     /// </summary>
     public partial class MainWindow : Window
     {
+        // instancing recruitmentsystem
+        RecruitmentSystem recruitmentSystem = new RecruitmentSystem();
         // combo box test
         List<Job> jobs = new List<Job>() { new Job("Do things", 100), new Job("Write codes", 5) };
         List<string> jobHeadings = new List<string>() { "Text one", "Text two", "Text three" };
@@ -25,6 +27,7 @@ namespace Contractor
         {
             InitializeComponent();
             jobBox.ItemsSource = jobs;
+            contractorlist.ItemsSource = recruitmentSystem.GetContractors();
         }
         
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -46,8 +49,18 @@ namespace Contractor
             ContractorEditor contractorEditor = new ContractorEditor(contractors);
             contractorEditor.ShowDialog();
             contractorlist.ItemsSource = new Contractors[] { contractors };
+            recruitmentSystem.AddContractors(contractors);
+            contractorlist.ItemsSource = recruitmentSystem.GetContractors();
+
         }
-        
+
+        private void Remove_Contractor(object sender, RoutedEventArgs e)
+        {
+            Contractors contractors = new Contractors(null, null, 0);
+            recruitmentSystem.RemoveContractors(contractors);
+            contractorlist.Items.Refresh();
+        }
+
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
