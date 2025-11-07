@@ -25,12 +25,12 @@ namespace Contractor
             Title = title;
             Cost = cost;
         }
+
         /// <summary>
-        /// 
+        /// Overrides ToString() to convert object (job.job) to return value
         /// </summary>
         /// <param name="title"></param>
         /// <param name="cost"></param>
-
         public override string ToString() {
             return $"{Title}-{Cost}";
         }

@@ -26,7 +26,7 @@ namespace Contractor
             InitializeComponent();
             jobBox.ItemsSource = jobs;
         }
-
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Job job = new Job(null,0);
@@ -35,6 +35,11 @@ namespace Contractor
             editor.ShowDialog();
             jobList.ItemsSource = new Job[] { job };
         }
+
+        /// <summary>
+        /// Creates new contractor --> opens ContractorEditor window --> submit --> updates contractorlist
+        /// #Item.Refresh just in case view doesn't load/refresh
+        /// </summary>
         private void Display_Contractor(object sender, RoutedEventArgs e)
         {
             Contractors contractors = new Contractors(null, null, 0);
@@ -42,10 +47,7 @@ namespace Contractor
             contractorEditor.ShowDialog();
             contractorlist.ItemsSource = new Contractors[] { contractors };
         }
-        /// <summary>
-        /// Creates new contractor --> opens ContractorEditor window --> submit --> updates contractorlist
-        /// Item.Refresh just in case view doesn't load/refresh
-        /// </summary>
+        
 
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
@@ -55,7 +57,7 @@ namespace Contractor
             editor.Show();
         }
 
-        //modify later to view/filter available contractors
+        ///#modify later to view/filter available contractors
         private void selectedJob(object sender, SelectionChangedEventArgs e)
         {
             //Job selectedJob = jobBox.SelectedItem as Job;
