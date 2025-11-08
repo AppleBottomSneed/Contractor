@@ -31,10 +31,10 @@
             </StackPanel>
             
         </Grid>
-        <StackPanel Grid.Column="0" Grid.Row="1">
+        <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center">
             <Button Content="Assign"  Height="30" Width="75" />
-            <Label Content="" Height="30" Width="75" />
-        </StackPanel>
+            <ComboBox x:Name="assignList" Height="30" Width="75" />
+        </WrapPanel>
         <Grid Grid.Column="1">
 
             <StackPanel>
@@ -52,10 +52,9 @@
                 
             </StackPanel>
         </Grid>
-        <StackPanel Grid.Column="1" Grid.Row="1">
+        <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
             <Button Content="Complete"  Height="30" Width="75" />
             <ComboBox x:Name="jobBox" Height="30" Width="75" SelectionChanged="selectedJob" />
-            <Label x:Name="infoLabel" Content="" Height="30" Width="75" />
-        </StackPanel>
+        </WrapPanel>
     </Grid>
 </Window>

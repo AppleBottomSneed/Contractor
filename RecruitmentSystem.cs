@@ -54,6 +54,8 @@ namespace Contractor
             this.jobs.Remove(jobs);
         }
 
+        
+
         /// Things to do:
         /// #1 create GetJob to return jobs after completing contractors
         /// 
