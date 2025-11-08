@@ -54,7 +54,15 @@ namespace Contractor
             this.jobs.Remove(jobs);
         }
 
-        
+        /// <summary>
+        /// contractor field AssignedJob to be job field Title
+        /// </summary>
+        /// <param name="contractors">getting AssignedJob from contractors</param>
+        /// <param name="job">getting Title from job</param>
+        public void AssignJob(Contractors contractors, Job job)
+        {
+            contractors.AssignedJob = job.Title;
+        }
 
         /// Things to do:
         /// #1 create GetJob to return jobs after completing contractors

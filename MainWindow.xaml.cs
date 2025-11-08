@@ -83,6 +83,21 @@ namespace Contractor
             contractorlist.Items.Refresh();
         }
 
+        /// <summary>
+        /// Selecting TWO (2!) things now, similar logic to removing contractor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Assign_Click(object sender, RoutedEventArgs e)
+        {
+            Contractors selectedContractor = (Contractors)contractorlist.SelectedItem;
+            Job selectedJob = (Job)jobList.SelectedItem;
+            // double
+            recruitmentSystem.AssignJob(selectedContractor, selectedJob);
+            contractorlist.Items.Refresh();
+
+        }
+
         /*
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
@@ -94,6 +109,7 @@ namespace Contractor
         */
 
         ///#modify later to view/filter available contractors
+        /*
         private void selectedJob(object sender, SelectionChangedEventArgs e)
         {
             //Job selectedJob = jobBox.SelectedItem as Job;
@@ -103,7 +119,7 @@ namespace Contractor
                 infoLabel.Content = selectedJob.ToString();
             }
         }
+        */
 
-        
     }
 }

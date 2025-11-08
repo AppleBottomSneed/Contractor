@@ -13,6 +13,7 @@ namespace Contractor
         public string LastName { get; set; }
         public DateTime StartDate { get; set; }
         public float HourlyWage { get; set; }
+        public string AssignedJob { get; set; }
 
         /// <summary>
         /// Method to set the default values for contractor
@@ -29,12 +30,12 @@ namespace Contractor
         }
         
         /// <summary>
-        /// Overrides ToString() to convert (contractors.constractors) to return value
+        /// Overrides ToString() to convert (contractors.constractors) to return value + checks if field AssignedJob is empty otherwise print (Assigned)
         /// </summary>
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{FirstName} {LastName}";
+            return $"{FirstName} {LastName } {(string.IsNullOrEmpty(AssignedJob) ? "": $"(Assigned) - {AssignedJob}")}";
         }
 
         /// Things to do:
