@@ -47,6 +47,11 @@ namespace Contractor
             jobList.ItemsSource = recruitmentSystem.GetJobs();
         }
 
+        /// <summary>
+        /// Removes job on selection, references GetJobs() and refreshes list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Remove_Job(object sender, RoutedEventArgs e)
         {
             Job selected = (Job)jobList.SelectedItem; 
@@ -96,6 +101,24 @@ namespace Contractor
             recruitmentSystem.AssignJob(selectedContractor, selectedJob);
             contractorlist.Items.Refresh();
 
+        }
+
+        /// <summary>
+        /// Select one job, then when clicked update job and remove AssignedJob field from contracto + job field complete = true
+        /// Only need to select job as jobs are already assigned to someone before completing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Complete_Click(object sender, RoutedEventArgs e)
+        {
+            Job selectedJob = (Job)jobList.SelectedItem;
+            recruitmentSystem.CompleteJob(selectedJob);
+            // get both sources
+            contractorlist.ItemsSource = recruitmentSystem.GetContractors();
+            jobList.ItemsSource = recruitmentSystem.GetJobs();
+            // refresh both lists
+            contractorlist.Items.Refresh();
+            jobList.Items.Refresh();
         }
 
         /*

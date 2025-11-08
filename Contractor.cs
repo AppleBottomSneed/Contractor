@@ -39,7 +39,7 @@ namespace Contractor
         }
 
         /// Things to do:
-        /// 1# Add paranthesis showing if completed + do same with job list for assigned
+        ///
     }
 
 

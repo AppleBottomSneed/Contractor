@@ -32,7 +32,7 @@ namespace Contractor
         /// <param name="title"></param>
         /// <param name="cost"></param>
         public override string ToString() {
-            return $"{Title} - {Cost}";
+            return $"{Title} - {Cost} {(Completed ? "(Completed)" : "")}" ;
         }
 
     }

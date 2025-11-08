@@ -53,7 +53,7 @@
             </StackPanel>
         </Grid>
         <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
-            <Button Content="Complete"  Height="30" Width="75" />
+            <Button Click="Complete_Click"  Content="Complete"  Height="30" Width="75"/>
             <ComboBox x:Name="jobBox" Height="30" Width="75" />
         </WrapPanel>
     </Grid>

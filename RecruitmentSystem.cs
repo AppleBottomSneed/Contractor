@@ -55,19 +55,42 @@ namespace Contractor
         }
 
         /// <summary>
-        /// contractor field AssignedJob to be job field Title
+        /// contractor field AssignedJob to be job field Title 
         /// </summary>
         /// <param name="contractors">getting AssignedJob from contractors</param>
         /// <param name="job">getting Title from job</param>
         public void AssignJob(Contractors contractors, Job job)
         {
             contractors.AssignedJob = job.Title;
+            job.AssignedContractor = contractors;
+        }
+
+        /// <summary>
+        /// Complete_Click - sets job completed to true and unassigns from contractor assigned to same job (Contractor object + AssignedJob property)
+        /// </summary>
+        /// <param name="contractors"></param>
+        /// <param name="job"></param>
+        public void CompleteJob(Job job)
+        {
+            job.Completed = true;
+            job.AssignedContractor.AssignedJob = null;
+            job.AssignedContractor = null;
+
         }
 
         /// Things to do:
-        /// #1 create GetJob to return jobs after completing contractors
+        /// # CompleteJob to check off completed jobs
+        /// # Return contractor back to pool
+        /// # GetAvailableContractors to filter free contractors
+        /// # GetUnassignedJobs to filter free jobs
+        /// # GetJobByCost to filter cost using slider
+        /// # User validation for inputs
+        /// # If theres time have job assignment available as comboBox during adding job
         /// 
+        /// Bug board:
+        /// # error when not selecting contractor + job for assign button
+
     }
 
-
+    
 }
