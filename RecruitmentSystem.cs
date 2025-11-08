@@ -35,8 +35,28 @@ namespace Contractor
         {
             this.contractors.Remove(contractors);
         }
+        /// <summary>
+        /// Persistent list of Job
+        /// </summary>
+        /// <returns>jobs so it doesnt refresh</returns>
+        public List<Job> GetJobs()
+        {
+            return jobs;
+        }
+
+        public void AddJobs(Job jobs)
+        {
+            this.jobs.Add(jobs);
+        }
+
+        public void RemoveJobs(Job jobs)
+        {
+            this.jobs.Remove(jobs);
+        }
+
         /// Things to do:
         /// #1 create GetJob to return jobs after completing contractors
+        /// 
     }
 
 

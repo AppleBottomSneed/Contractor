@@ -28,8 +28,14 @@ namespace Contractor
             InitializeComponent();
             jobBox.ItemsSource = jobs;
             contractorlist.ItemsSource = recruitmentSystem.GetContractors();
+            jobList.ItemsSource = recruitmentSystem.GetJobs();
         }
         
+        /// <summary>
+        /// Same as contractor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Job job = new Job(null,0);
@@ -37,6 +43,16 @@ namespace Contractor
             // display jobeditor window
             editor.ShowDialog();
             jobList.ItemsSource = new Job[] { job };
+            recruitmentSystem.AddJobs(job);
+            jobList.ItemsSource = recruitmentSystem.GetJobs();
+        }
+
+        private void Remove_Job(object sender, RoutedEventArgs e)
+        {
+            Job selected = (Job)jobList.SelectedItem; 
+            recruitmentSystem.RemoveJobs(selected);
+            jobList.ItemsSource = recruitmentSystem.GetJobs();
+            jobList.Items.Refresh();
         }
 
         /// <summary>
@@ -54,14 +70,20 @@ namespace Contractor
 
         }
 
+        /// <summary>
+        /// Remove selected contractor
+        /// </summary>
+        /// <param name="sender">remove button that removes selected contractor</param>
+        /// <param name="e"></param>
         private void Remove_Contractor(object sender, RoutedEventArgs e)
         {
-            Contractors contractors = new Contractors(null, null, 0);
-            recruitmentSystem.RemoveContractors(contractors);
+            Contractors selected = (Contractors)contractorlist.SelectedItem;
+            recruitmentSystem.RemoveContractors(selected);
+            contractorlist.ItemsSource = recruitmentSystem.GetContractors();
             contractorlist.Items.Refresh();
         }
 
-
+        /*
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             Job job = new Job("Do things", 5);
@@ -69,6 +91,7 @@ namespace Contractor
             JobEditor editor = new JobEditor(job);
             editor.Show();
         }
+        */
 
         ///#modify later to view/filter available contractors
         private void selectedJob(object sender, SelectionChangedEventArgs e)

@@ -25,10 +25,10 @@ namespace Contractor
         public event EventHandler JobEditComplete;
 
         // constructor includes job which changes job boxes
-        public JobEditor(Job job)
+        public JobEditor(Job jobs)
         {
             InitializeComponent();
-            JobToEdit = job;
+            JobToEdit = jobs;
             titleBox.Text = JobToEdit.Title;
             dateBox.SelectedDate = JobToEdit.Date;
             completeBox.IsChecked = JobToEdit.Completed;
