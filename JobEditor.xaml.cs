@@ -38,7 +38,12 @@ namespace Contractor
 
         }
 
-        // on click change JobToEdit to job boxes
+        /// <summary>
+        /// on click change JobToEdit to job boxes
+        /// user validation for title (cant be empty) and cost (must have only numbers)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             JobToEdit.Title = titleBox.Text;
@@ -46,12 +51,24 @@ namespace Contractor
             // typecast completeBox as (bool)
             JobToEdit.Completed = (bool)completeBox.IsChecked;
             float cost;
-            if (float.TryParse(costBox.Text, out cost))
+
+            if (string.IsNullOrWhiteSpace(titleBox.Text))
+            {
+                MessageBox.Show("Job title can't be empty");
+                return;
+            }
+            // cost must have number
+            if (!float.TryParse(costBox.Text, out cost))
+            {
+                MessageBox.Show("Cost of job must be a float number");
+                return;
+            }
+            else
             {
                 JobToEdit.Cost = cost;
             }
-            
-            if (JobEditComplete!= null)
+
+            if (JobEditComplete != null)
             {
                 JobEditComplete(this, new EventArgs());
             }
@@ -59,12 +76,14 @@ namespace Contractor
             Close();
         }
 
+        //leftover from lecture
         private void costBox_TextChanged(object sender, TextChangedEventArgs e)
         {
            
             
         }
 
+        //leftover from lecture
         private void assigneeBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             TextBox textBox = sender as TextBox;

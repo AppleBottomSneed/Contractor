@@ -36,13 +36,39 @@ namespace Contractor
 
         }
 
+        /// <summary>
+        /// after submit_button clicked set fields to user input + user validation 
+        /// wage number validated, first name and last name must not be empty (string validation too complex)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Submit_Button(object sender, RoutedEventArgs e)
         {
             ContractorsToEdit.FirstName = firstNameBox.Text;
             ContractorsToEdit.LastName = lastNameBox.Text;
             ContractorsToEdit.StartDate = (DateTime)startDateBox.SelectedDate;
             float HourlyWage;
-            if (float.TryParse(hourlyWageBox.Text, out HourlyWage))
+
+            //first name and last name must have input
+            if (string.IsNullOrWhiteSpace(firstNameBox.Text))
+            {
+                MessageBox.Show("First name can't be empty");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(lastNameBox.Text))
+            {
+                MessageBox.Show("Last name can't be empty");
+                return;
+            }
+
+            // wage must have number
+            if (!float.TryParse(hourlyWageBox.Text, out HourlyWage))
+            {
+                MessageBox.Show("Houry Wage must be a float number");
+                return;
+            }
+            else
             {
                 ContractorsToEdit.HourlyWage = HourlyWage;
             }

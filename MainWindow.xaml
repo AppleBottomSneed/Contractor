@@ -21,7 +21,7 @@
         <Grid Grid.Column="0">
             <StackPanel>
                 <Label Content="Contractor" FontWeight="Bold" FontSize="20" Padding="15,5,5,15"   />
-                <ComboBox x:Name="contractorFilterBox"  Width="75" HorizontalAlignment="Right" Margin="0,0,75,0" SelectionChanged="contractorFilter_SelectionChanged">
+                <ComboBox x:Name="contractorFilterBox"  Width="75" HorizontalAlignment="Right" Margin="0,0,75,0" SelectionChanged="ContractorFilter_SelectionChanged">
                     <ComboBoxItem Content="All" />
                     <ComboBoxItem Content="Unassigned" />
                 </ComboBox>
@@ -29,7 +29,7 @@
                 <WrapPanel HorizontalAlignment="Left" >
                     <Button Click="Display_Contractor" Content="Add" Height="30" Width="75" Margin="50,0,0,0" ></Button>
                     <Button Click="Remove_Contractor"  Content="Remove" Height="30" Width="75"></Button>
-                    <Button Content="Edit" Height="30" Width="75" Margin="75,0,0,0"></Button>
+                    <Button Content="Edit" Height="30" Width="75" Margin="75,0,0,0" IsEnabled="False"></Button>
                 </WrapPanel>
             </StackPanel>
             
@@ -42,17 +42,18 @@
             <StackPanel>
                 <Label Content="Job" FontWeight="Bold" FontSize="20" Padding="15,5,5,15"   />
                 <WrapPanel HorizontalAlignment="Center">
-                    <Slider Width="100" />
-                    <ComboBox x:Name="jobFilterBox" Width="75" SelectionChanged="jobFilter_SelectionChanged">
+                    <Slider x:Name="jobCostSlider" Width="100" ValueChanged="JobCostSlider_ValueChanged"  IsSnapToTickEnabled="True" Maximum="1000" />
+                    <Label x:Name="jobCostLabel" Content="Max Cost: 0" MaxWidth="130" MinWidth="130"  />
+                    <ComboBox x:Name="jobFilterBox" Width="75" SelectionChanged="JobFilter_SelectionChanged">
                         <ComboBoxItem Content="All"  />
-                        <ComboBoxItem Content="Unassigned" />
+                        <ComboBoxItem Content="Unassigned" Padding="5,0,5,0" />
                     </ComboBox>
                 </WrapPanel>
                 <ListBox x:Name="jobList" Height="200" Width="300"></ListBox>
                 <WrapPanel HorizontalAlignment="Left" >
                     <Button Click="Button_Click" Content="Add" Height="30" Width="75" Margin="50,0,0,0"></Button>
                     <Button Click="Remove_Job" Content="Remove" Height="30" Width="75"></Button>
-                    <Button Content="Edit" Height="30" Width="75" Margin="75,0,0,0"></Button>
+                    <Button Content="Edit" Height="30" Width="75" Margin="75,0,0,0" IsEnabled="False"></Button>
                 </WrapPanel>
                 
             </StackPanel>

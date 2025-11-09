@@ -129,7 +129,7 @@ namespace Contractor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void contractorFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ContractorFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedFilter = (contractorFilterBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
 
@@ -150,7 +150,7 @@ namespace Contractor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void jobFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void JobFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedFilter = (jobFilterBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
 
@@ -162,6 +162,21 @@ namespace Contractor
             {
                 jobList.ItemsSource = recruitmentSystem.GetJobs();
             }
+            jobList.Items.Refresh();
+        }
+
+        /// <summary>
+        /// JobCostSlider_ValueChanged updates jobList by maxCost parameter in method GetJobByCost()
+        /// maxCost = current slider puck position, with literal max range adjusted via xaml Maximum
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void JobCostSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            float maxCost = (float)jobCostSlider.Value;
+            jobCostLabel.Content = $"Max Cost: {maxCost}";
+
+            jobList.ItemsSource = recruitmentSystem.GetJobByCost(maxCost);
             jobList.Items.Refresh();
         }
 
