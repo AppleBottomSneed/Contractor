@@ -68,7 +68,6 @@ namespace Contractor
         /// <summary>
         /// Complete_Click - sets job completed to true and unassigns from contractor assigned to same job (Contractor object + AssignedJob property)
         /// </summary>
-        /// <param name="contractors"></param>
         /// <param name="job"></param>
         public void CompleteJob(Job job)
         {
@@ -78,19 +77,52 @@ namespace Contractor
 
         }
 
+        /// <summary>
+        /// Filter method to show only contractors with empty AssisgnedJob field
+        /// </summary>
+        /// <returns>unssigned</returns>
+        public List<Contractors> GetAvailableContractors()
+        {
+            List<Contractors> unassigned = new List<Contractors> ();
+
+            foreach (Contractors contractor in contractors)
+            {
+                if (string.IsNullOrEmpty(contractor.AssignedJob))
+                {
+                    unassigned.Add(contractor);
+                }
+            }
+            return unassigned;
+        }
+
+        /// <summary>
+        /// Filter method to show only jobs without AssignedContractor field
+        /// </summary>
+        /// <returns>unassigned</returns>
+        /// 
+        public List<Job> GetUnassignedJobs()
+        {
+            List<Job> unassigned = new List<Job> ();
+
+            foreach (Job job in jobs)
+            {
+                if (job.AssignedContractor == null)
+                {
+                    unassigned.Add(job);
+                }
+            }
+            return unassigned;
+        }
         /// Things to do:
-        /// # CompleteJob to check off completed jobs
-        /// # Return contractor back to pool
-        /// # GetAvailableContractors to filter free contractors
-        /// # GetUnassignedJobs to filter free jobs
         /// # GetJobByCost to filter cost using slider
         /// # User validation for inputs
         /// # If theres time have job assignment available as comboBox during adding job
         /// 
         /// Bug board:
         /// # error when not selecting contractor + job for assign button
+        /// # null exception error if ComboBoxItem has IsSelected="True" (where 'All' Filter is turned on by default)
 
     }
 
-    
+
 }

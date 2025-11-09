@@ -21,7 +21,10 @@
         <Grid Grid.Column="0">
             <StackPanel>
                 <Label Content="Contractor" FontWeight="Bold" FontSize="20" Padding="15,5,5,15"   />
-                <ComboBox Width="75" HorizontalAlignment="Right" Margin="0,0,75,0"></ComboBox>
+                <ComboBox x:Name="contractorFilterBox"  Width="75" HorizontalAlignment="Right" Margin="0,0,75,0" SelectionChanged="contractorFilter_SelectionChanged">
+                    <ComboBoxItem Content="All" />
+                    <ComboBoxItem Content="Unassigned" />
+                </ComboBox>
                 <ListBox x:Name="contractorlist" Height="200" Width="300"></ListBox>
                 <WrapPanel HorizontalAlignment="Left" >
                     <Button Click="Display_Contractor" Content="Add" Height="30" Width="75" Margin="50,0,0,0" ></Button>
@@ -33,7 +36,6 @@
         </Grid>
         <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center">
             <Button Content="Assign" Height="30" Width="75" Click="Assign_Click" />
-            <ComboBox x:Name="assignList" Height="30" Width="75" />
         </WrapPanel>
         <Grid Grid.Column="1">
 
@@ -41,7 +43,10 @@
                 <Label Content="Job" FontWeight="Bold" FontSize="20" Padding="15,5,5,15"   />
                 <WrapPanel HorizontalAlignment="Center">
                     <Slider Width="100" />
-                    <ComboBox Width="75"></ComboBox>
+                    <ComboBox x:Name="jobFilterBox" Width="75" SelectionChanged="jobFilter_SelectionChanged">
+                        <ComboBoxItem Content="All"  />
+                        <ComboBoxItem Content="Unassigned" />
+                    </ComboBox>
                 </WrapPanel>
                 <ListBox x:Name="jobList" Height="200" Width="300"></ListBox>
                 <WrapPanel HorizontalAlignment="Left" >
@@ -54,7 +59,6 @@
         </Grid>
         <WrapPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center">
             <Button Click="Complete_Click"  Content="Complete"  Height="30" Width="75"/>
-            <ComboBox x:Name="jobBox" Height="30" Width="75" />
         </WrapPanel>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Runtime.CompilerServices;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,9 +27,9 @@ namespace Contractor
         public MainWindow()
         {
             InitializeComponent();
-            jobBox.ItemsSource = jobs;
             contractorlist.ItemsSource = recruitmentSystem.GetContractors();
             jobList.ItemsSource = recruitmentSystem.GetJobs();
+
         }
         
         /// <summary>
@@ -118,6 +119,49 @@ namespace Contractor
             jobList.ItemsSource = recruitmentSystem.GetJobs();
             // refresh both lists
             contractorlist.Items.Refresh();
+            jobList.Items.Refresh();
+        }
+
+        /// <summary>
+        /// selectedFilter looks for combobox item "Unassigned" then call GetAvailableContractors, otherwise "All" unfilters
+        /// use var as as string causes null exceptions
+        /// ? to handle null exception for GetAvailableContractors (If item selected AND content not null, call ToString)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void contractorFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedFilter = (contractorFilterBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
+
+            if (selectedFilter == "Unassigned")
+            {
+                contractorlist.ItemsSource = recruitmentSystem.GetAvailableContractors();
+            }
+            else
+            {
+                contractorlist.ItemsSource = recruitmentSystem.GetContractors();
+            }
+            contractorlist.Items.Refresh();
+        }
+
+        /// <summary>
+        /// Same as above, but for jobList
+        /// jobList has null exception if IsSelected is in combobox item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void jobFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedFilter = (jobFilterBox.SelectedItem as ComboBoxItem)?.Content?.ToString();
+
+            if (selectedFilter == "Unassigned")
+            {
+                jobList.ItemsSource = recruitmentSystem.GetUnassignedJobs();
+            }
+            else
+            {
+                jobList.ItemsSource = recruitmentSystem.GetJobs();
+            }
             jobList.Items.Refresh();
         }
 
