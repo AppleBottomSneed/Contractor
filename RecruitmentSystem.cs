@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Contractor
 {
-    class RecruitmentSystem
+    // make public so accessible to test
+    public class RecruitmentSystem
     {
         /// <summary>
         /// 
