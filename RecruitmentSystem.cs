@@ -74,6 +74,12 @@ namespace Contractor
         /// <param name="job">getting Title from job</param>
         public void AssignJob(Contractors contractors, Job job)
         {
+            //job == null if no selection, will cause nullexception 
+            if (job == null)
+            {
+                return; 
+            }
+
             contractors.AssignedJob = job.Title;
             job.AssignedContractor = contractors;
         }
@@ -84,10 +90,22 @@ namespace Contractor
         /// <param name="job"></param>
         public void CompleteJob(Job job)
         {
-            job.Completed = true;
-            job.AssignedContractor.AssignedJob = null;
-            job.AssignedContractor = null;
+            //null check for job so does nothing if none selected
+            if (job == null)
+            {
+                return;
+            }
 
+            job.Completed = true;
+           
+            // checks AssignedContractor is not null, cant do null on null operation
+            if (job.AssignedContractor != null)
+            {
+                job.AssignedContractor.AssignedJob = null;
+                job.AssignedContractor = null;
+
+            }
+            
         }
 
         /// <summary>
