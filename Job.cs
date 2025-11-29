@@ -16,6 +16,11 @@ namespace Contractor
 
         // Easier for datatype to ref back to the object
         public Contractors AssignedContractor { get; set; }
+
+        /// <summary>
+        /// Method of setting parameters of each variable in job/// </summary>
+        /// <param name="title"></param>
+        /// <param name="cost"></param>
         public Job(string title, float cost)
         {
             // Default status should be incomplete & empty before assigning
@@ -29,8 +34,9 @@ namespace Contractor
         /// <summary>
         /// Overrides ToString() to convert object (job.job) to return value
         /// </summary>
-        /// <param name="title"></param>
-        /// <param name="cost"></param>
+        /// <param name="title">Title of job </param>
+        /// <param name="cost">Cost of job</param>
+        /// <param name="Completed">Boolean if job is completed</param>
         public override string ToString() {
             return $"{Title} - {Cost} {(Completed ? "(Completed)" : "")}" ;
         }
